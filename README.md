@@ -25,6 +25,69 @@ ignorados pelo git. As imagens que o site usa já estão prontas em `assets/img`
 Só é preciso ter os originais para rodar `tools/optimize-images.py`, ou seja,
 para trocar ou reprocessar uma foto.
 
+| Arquivo de origem | Conteúdo | Usado em |
+| --- | --- | --- |
+| `fialho_barbearia.jpg` | Logo, 447 x 447 px | cabeçalho, seção do Clube, rodapé, ícones e imagem de compartilhamento |
+| `Screenshot 2026-09-28 153120.png` | Toalha quente com o logo bordado | hero e imagem de compartilhamento |
+| `Screenshot 2026-09-28 153138.png` | Barbeiro e menino na poltrona | avaliações |
+| `Screenshot 2026-09-28 153147.png` | Placa "Barbearia Aberta" | onde fica |
+| `Screenshot 2026-09-28 153208.png` | Geladeira com bebidas | a casa |
+| `Screenshot 2026-09-28 153218.png` | Salão e poltronas | a casa |
+| `Screenshot 2026-09-28 153238.png` | Barbeiro em atendimento | serviços |
+| `Richard_Derner.png`, `Ronny_Matheus.png`, `Jose_Gerdes.png` | Fotos de perfil, 72 x 72 px | avaliações |
+| `dados.txt` | Contatos, links e avaliações | textos da página |
+
+## Repositório
+
+| Item | Valor |
+| --- | --- |
+| Endereço | `git@github.com:joabegalvao/fialho_barbearia.git` |
+| Página | https://github.com/joabegalvao/fialho_barbearia |
+| Visibilidade | pública (conferida em 28/09/2026) |
+| Branch | `main` |
+
+O repositório guarda só o que o site precisa para funcionar e ser mantido:
+`index.html`, `assets/`, `tools/`, `README.md` e `.gitignore`. O `.gitignore`
+exclui os materiais de origem, que são os arquivos `.png`, `.jpg` e `.jpeg` da
+raiz e o `dados.txt`.
+
+```bash
+git clone git@github.com:joabegalvao/fialho_barbearia.git
+```
+
+Um clone novo abre e publica o site normalmente. Só não roda o script de
+imagens, que depende dos materiais de origem.
+
+## Dados do cliente
+
+Dados recebidos em 28/09/2026 e usados na página.
+
+| Dado | Valor |
+| --- | --- |
+| Nome | Fialho Barbearia |
+| Segmento | Cortes de cabelo e barba |
+| Serviços | Cabelo, barba e produtos |
+| Público | Homens |
+| Endereço | Avenida Brasil, 4493, Maringá, PR |
+| Telefone | (44) 99809-2162 |
+| Agenda online | https://sites.appbarber.com.br/fialhobarbearia-07zd |
+| Clube Fialho | https://sites.appbarber.com.br/assinar?e=fialhobarbearia-07zd |
+| Instagram | https://www.instagram.com/fialhobarbearia_/ |
+| Facebook | https://www.facebook.com/people/Fialho-Barbearia/61556734272051/ |
+
+### Avaliações como foram recebidas
+
+Texto original, antes de qualquer correção. A página mostra os depoimentos sem
+as indicações de foto.
+
+- **Richard Derner:** A melhor da cidade, sempre com um atendimento com muita
+  simpatia e um trabalho de muita qualidade.
+- **Ronny Matheus:** Atendimento excelente, ambiente top e corte impecável! Dá
+  pra ver o cuidado em cada detalhe. Especificamente ao João e ao André
+  excelentes profissionais, parabéns pela barbearia, Equipe! Sucesso sempre!
+- **José Gerdes:** Melhor barbearia de Maringá, boa conversa é o corte
+  Excelente. Ja fechei o plano de assinatura que vale muito a pena
+
 ## Estratégia
 
 | Definição | Decisão |
@@ -207,6 +270,7 @@ abri-la nos testes.
 | Botão flutuante de WhatsApp e links de WhatsApp em "Onde fica" e no rodapé | `index.html`, `assets/css/styles.css` |
 | Remoção da legenda da foto do hero | `index.html`, `assets/css/styles.css` |
 | Correção: a barra fixa do celular deixava de aparecer depois que o visitante passava pela seção do Clube | `assets/js/main.js` |
+| Registro dos dados do cliente, das avaliações originais e do repositório no README | `README.md` |
 
 ## Créditos e licenças
 
