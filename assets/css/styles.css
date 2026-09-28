@@ -14,7 +14,7 @@
    11. Como agendar e onde fica
    12. Chamada final
    13. Rodapé
-   14. Barra fixa no celular
+   14. Barra fixa no celular e botão de WhatsApp
    15. Movimento
    ========================================================================== */
 
@@ -66,6 +66,7 @@
   --header-height: 72px;
   --radius: 2px;
   --focus: var(--copper);
+  --whatsapp: #25d366;    /* verde oficial do WhatsApp */
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
@@ -563,6 +564,7 @@ button {
 .hero__figure {
   position: relative;
   width: min(100% - 12px, 420px);
+  padding-bottom: 16px;
 }
 
 .hero__frame {
@@ -581,12 +583,6 @@ button {
 .hero__frame img {
   position: relative;
   width: 100%;
-}
-
-.hero__caption {
-  margin-top: 28px;
-  color: var(--ivory-soft);
-  font-size: 0.875rem;
 }
 
 .facts {
@@ -666,10 +662,6 @@ button {
 
   .hero__frame::before {
     transform: translate(16px, 16px);
-  }
-
-  .hero__caption {
-    margin-top: 32px;
   }
 }
 
@@ -1329,7 +1321,8 @@ button {
   justify-content: space-between;
   gap: 8px 24px;
   margin-top: 48px;
-  padding-block: 20px;
+  /* a folga na base deixa o botão de WhatsApp livre do texto */
+  padding-block: 20px 88px;
   border-top: 1px solid var(--ink-line);
   font-size: 0.8125rem;
 }
@@ -1347,7 +1340,7 @@ button {
   }
 }
 
-/* 14. Barra fixa no celular
+/* 14. Barra fixa no celular e botão de WhatsApp
    ========================================================================== */
 
 .sticky-cta {
@@ -1378,6 +1371,54 @@ button {
 @media (min-width: 900px) {
   .sticky-cta {
     display: none;
+  }
+}
+
+.whats-float {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  z-index: 95;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: var(--whatsapp);
+  color: var(--ink);
+  transition: transform 0.3s var(--ease), background-color 0.2s var(--ease);
+}
+
+.whats-float:hover {
+  background: #4be083;
+}
+
+.whats-float:focus-visible {
+  outline-color: var(--ivory);
+  border-radius: 50%;
+}
+
+.whats-float .icon {
+  width: 28px;
+  height: 28px;
+}
+
+/* no celular, sobe junto com a barra fixa para não cobrir o botão de agendar */
+.has-sticky-cta .whats-float {
+  transform: translateY(-72px);
+}
+
+@media (min-width: 900px) {
+  .whats-float {
+    right: 24px;
+    bottom: 24px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .has-sticky-cta .whats-float {
+    transform: none;
   }
 }
 

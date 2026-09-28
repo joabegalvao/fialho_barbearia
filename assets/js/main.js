@@ -78,12 +78,11 @@
 
     bar.hidden = false;
 
-    var state = { pastHero: false, nearAction: {} };
+    var selectors = ['.club__actions', '.visit__actions', '.closing', '.footer'];
+    var state = { pastHero: false, nearAction: selectors.map(function () { return false; }) };
 
     function update() {
-      var near = Object.keys(state.nearAction).some(function (key) {
-        return state.nearAction[key];
-      });
+      var near = state.nearAction.some(Boolean);
       var visible = state.pastHero && !near;
       bar.classList.toggle('is-visible', visible);
       root.classList.toggle('has-sticky-cta', visible);
@@ -96,15 +95,18 @@
     }).observe(hero);
 
     // A barra some onde a página já oferece um botão de ação próprio
+    var elements = selectors.map(function (selector) {
+      return document.querySelector(selector);
+    });
+
     var actionObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        state.nearAction[entry.target.className] = entry.isIntersecting;
+        state.nearAction[elements.indexOf(entry.target)] = entry.isIntersecting;
       });
       update();
     });
 
-    ['.club__actions', '.visit__actions', '.closing', '.footer'].forEach(function (selector) {
-      var element = document.querySelector(selector);
+    elements.forEach(function (element) {
       if (element) actionObserver.observe(element);
     });
 
